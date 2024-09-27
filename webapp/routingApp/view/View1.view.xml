@@ -1,0 +1,73 @@
+<mvc:View xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc"
+    controllerName="sap.ui.core.sample.RoutingFullscreen.routingApp.controller.View1">
+    <Page title="Main Page">
+        
+        <headerContent>
+            <Toolbar>
+                
+                <ToolbarSpacer />
+             
+                <Image src="image/logo.png" width="100px" height="auto" alt="Logo" />
+            </Toolbar>
+        </headerContent>
+        <content>
+            <layout:VerticalLayout>
+                <VBox>
+                    <Table id="postTable" items="{/posts}" inset="false" width="100%">
+                        <headerToolbar>
+                            <Toolbar>
+                                <Title text="Liste des positions créées"/>
+                            </Toolbar>
+                        </headerToolbar>
+                        <columns>
+                            <Column>
+                                <Text text="Nom du Poste"/>
+                            </Column>
+                            <Column>
+                                <Text text="Coût annuel"/>
+                            </Column>
+                            <Column>
+                                <Text text="Magasin"/>
+                            </Column>
+                            <Column>
+                                <Text text="Date de création"/>
+                            </Column>
+                            <Column>
+                                <Text text="Statut"/>
+                            </Column>
+                            <Column>
+                                <Text text="Actions"/>
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <Text text="{name}"/>
+                                    <Text text="{cost}"/>
+                                    <Text text="{store}"/>
+                                    <Text text="{date}"/>
+                                 
+                                    <HBox>
+                                        <Button icon="{= ${status} === 'Confirmé' ? 'sap-icon://accept' : 'sap-icon://pending' }" 
+                                            type="Transparent" tooltip="{status}" enabled="false" 
+                                            class="{= ${status} === 'Confirmé' ? 'confirmedStatus' : 'pendingStatus'}"/>
+                                    </HBox>
+                                  
+                                    <HBox justifyContent="SpaceBetween" alignItems="Center">
+                                        <Button icon="sap-icon://edit" press="onEditPost"/>
+                                        <Button icon="sap-icon://delete" type="Reject" press="onDeletePost"/>
+                                        <Button text="Confirmer" press="onConfirmPost"/>
+                                        <Button text=">>" press="onToPage2" class="navigateButton" />
+                                    </HBox>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                    <HBox justifyContent="End" width="100%" class="sapUiSmallMarginTop">
+                        <Button text="Créer position" type="Emphasized" press="onOpenCreatePostDialog"/>
+                    </HBox>
+                </VBox>
+            </layout:VerticalLayout>
+        </content>
+    </Page>
+</mvc:View>

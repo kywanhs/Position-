@@ -1,0 +1,14 @@
+/* Style personnalisé pour agrandir le contenu de la timeline */
+.timelineItemCustomStyle .sapSuiteUiCommonsTimelineItemTitle {
+    font-size: 1.5rem; /* Agrandir la taille du titre */
+    font-weight: bold; /* Mettre le titre en gras */
+}
+
+.timelineItemCustomStyle .sapSuiteUiCommonsTimelineItemText {
+    font-size: 1.2rem; /* Agrandir la taille du texte */
+}
+
+.timelineItemCustomStyle {
+    padding: 15px; /* Ajouter de l'espace autour des éléments de la timeline */
+    margin-bottom: 20px; /* Augmenter l'espacement entre les éléments */
+}

@@ -1,0 +1,86 @@
+/* CSS pour améliorer l'apparence de la table et des boutons */
+
+/* Style pour le bouton de navigation vers la deuxième page */
+.navigateButton {
+    margin-right: 10px;           /* Ajouter un espace à droite */
+    padding: 5px 10px;            /* Padding pour rendre le bouton plus visible */
+    background-color: #007BFF;    /* Couleur bleue */
+    color: white;                 /* Texte en blanc */
+    border-radius: 4px;           /* Coins arrondis */
+    font-weight: bold;            /* Texte en gras */
+    border: none;                 /* Supprimer les bordures par défaut */
+    cursor: pointer;              /* Curseur pointer pour rendre le bouton interactif */
+}
+
+/* Changer la couleur du bouton de navigation au survol */
+.navigateButton:hover {
+    background-color: #0056b3;    /* Couleur plus foncée au survol */
+}
+
+/* Couleurs pour les statuts confirmés et en attente */
+.confirmedStatus {
+    color: green;                 /* Vert pour confirmé */
+    background-color: transparent; /* Transparence pour le bouton */
+}
+
+.pendingStatus {
+    color: orange;                /* Orange pour en attente */
+    background-color: transparent; /* Transparence pour le bouton */
+}
+
+/* Apparence générale de la table */
+#postTable {
+    width: 100%;                  /* Table à 100% de la largeur */
+    border-collapse: collapse;     /* Supprimer les espaces entre les bordures de cellules */
+    margin-bottom: 20px;           /* Espacement en bas de la table */
+}
+
+/* Style pour les cellules de la table */
+#postTable .sapMListTblRow {
+    border-bottom: 1px solid #ddd; /* Bordure fine entre les lignes */
+    padding: 8px;                 /* Espacement interne pour les cellules */
+}
+
+/* Style des en-têtes de la table */
+#postTable .sapMListTblHeaderCell {
+    font-weight: bold;            /* Texte en gras pour les en-têtes */
+    background-color: #f2f2f2;    /* Fond gris clair pour les en-têtes */
+    padding: 10px;                /* Espacement dans les en-têtes */
+    text-align: left;             /* Alignement à gauche du texte */
+}
+
+/* Ajouter de la marge entre les boutons d'action */
+.sapMBtn {
+    margin: 0 5px;                /* Marge horizontale entre les boutons */
+}
+
+/* Apparence du bouton "Créer un poste" */
+.sapMBtnEmphasized {
+    background-color: #28a745;    /* Couleur verte pour le bouton important */
+    color: white;                 /* Texte en blanc */
+    font-weight: bold;            /* Texte en gras */
+    border-radius: 4px;           /* Coins légèrement arrondis */
+    padding: 10px 20px;           /* Padding pour le rendre plus grand */
+}
+
+/* Au survol, la couleur du bouton "Créer un poste" devient plus foncée */
+.sapMBtnEmphasized:hover {
+    background-color: #218838;    /* Vert plus foncé au survol */
+}
+
+/* Style pour ajuster la largeur de chaque colonne */
+#postTable .sapMListTblCell {
+    padding: 10px;                /* Ajouter du padding dans les cellules */
+    text-align: left;             /* Alignement du texte à gauche */
+}
+
+/* Améliorer l'apparence du tableau en ajoutant des survols sur les lignes */
+#postTable .sapMListTblRow:hover {
+    background-color: #f9f9f9;    /* Fond gris clair au survol d'une ligne */
+}
+
+/* Style pour aligner le bouton de création à droite */
+.sapUiSmallMarginTop {
+    margin-top: 20px;             /* Marge supérieure pour espacement avec la table */
+}
+

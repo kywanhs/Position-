@@ -1,0 +1,156 @@
+<mvc:View
+    displayBlock="true"
+    controllerName="sap.ui.core.sample.RoutingFullscreen.routingApp.controller.View2"
+    xmlns:uxap="sap.uxap"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:m="sap.m"
+    xmlns:f="sap.f"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:layout="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:suite="sap.suite.ui.commons">
+
+    <uxap:ObjectPageLayout id="ObjectPageLayout"
+        showTitleInHeaderContent="true"
+        alwaysShowContentHeader="false"
+        preserveHeaderStateOnScroll="false"
+        headerContentPinnable="true"
+        isChildPage="true"
+        upperCaseAnchorBar="false">
+
+        <uxap:headerTitle>
+            <uxap:ObjectPageDynamicHeaderTitle>
+                <uxap:expandedHeading>
+                    <m:Title text="{TempDataModel>/name}" wrapping="true" class="sapUiSmallMarginEnd"/>
+                </uxap:expandedHeading>
+                <uxap:snappedHeading>
+                    <m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
+                        <m:FlexBox wrap="NoWrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd">
+                            <f:Avatar src="{TempDataModel>/imageUrl}" displaySize="S" displayShape="Square"/>
+                            <m:Title text="{TempDataModel>/name}" wrapping="true" class="sapUiTinyMarginEnd"/>
+                        </m:FlexBox>
+                    </m:FlexBox>
+                </uxap:snappedHeading>
+            </uxap:ObjectPageDynamicHeaderTitle>
+        </uxap:headerTitle>
+
+        <uxap:headerContent>
+            <m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Stretch">
+                <f:Avatar src="{TempDataModel>/imageUrl}" displaySize="L" displayShape="Square" class="sapUiTinyMarginEnd"/>
+                <m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
+                    <m:Label text="Coût annuel"/>
+                    <m:ObjectNumber number="{TempDataModel>/cost}" emphasized="false"/>
+                </m:VBox>
+                <m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
+                    <m:Label text="Magasin"/>
+                    <m:Text text="{TempDataModel>/store}"/>
+                </m:VBox>
+                <m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
+                    <m:Label text="Date de création"/>
+                    <m:Text text="{TempDataModel>/date}"/>
+                </m:VBox>
+            </m:FlexBox>
+
+           
+            <m:Toolbar>
+                <m:Button icon="sap-icon://navigation-left-arrow" press="onBack" type="Transparent" tooltip="Retourner à la première page"/>
+                <m:ToolbarSpacer/>
+            </m:Toolbar>
+        </uxap:headerContent>
+
+        <uxap:sections>
+            <uxap:ObjectPageSection title="Détails Position">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection>
+                        <uxap:blocks>
+                            <form:SimpleForm
+                                editable="false"
+                                layout="ResponsiveGridLayout"
+                                labelSpanL="12"
+                                labelSpanM="12"
+                                emptySpanL="0"
+                                emptySpanM="0"
+                                columnsL="1"
+                                columnsM="1">
+                                <form:content>
+                                    <m:Label text="Nom de position"/>
+                                    <m:Text text=""  id="postNameText" />
+                                    <m:Label text="Coût annuel" />
+                                    <m:Text text=""  id="costText"/>
+                                    <m:Label text="Magasin" />
+                                    <m:Text text="" id="storeText"/>
+                                    <m:Label text="Date de création" />
+                                    <m:Text text="" id="dateText"/>
+                                </form:content>
+                            </form:SimpleForm>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+            
+            
+            
+            <uxap:ObjectPageSection title="Historique des actions">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection>
+                        <uxap:blocks>
+                            <form:SimpleForm
+                                editable="false"
+                                layout="ResponsiveGridLayout"
+                                labelSpanL="12"
+                                labelSpanM="12"
+                                emptySpanL="0"
+                                emptySpanM="0"
+                                columnsL="1"
+                                columnsM="1">
+                                <form:content>
+                                     <suite:Timeline id="actionTimeline" class="timelineItemCustomStyle" showIcons="true">
+                                    
+                                </suite:Timeline>
+                                </form:content>
+                            </form:SimpleForm>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+
+           
+
+            <uxap:ObjectPageSection title="Graphique de Coûts">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection>
+                        <uxap:blocks>
+                            <layout:Splitter width="100%" height="100%">
+                                <layout:contentAreas>
+                                    <suite:ChartContainer
+                                        id="chartContainer"
+                                        showFullScreen="true"
+                                        showPersonalization="true"
+                                        autoAdjustHeight="false"
+                                        personalizationPress="attachPersonalizationPress"
+                                        contentChange="attachContentChange"
+                                        title="Revenue">
+                                        <suite:content>
+                                            <suite:ChartContainerContent
+                                                icon="sap-icon://vertical-bar-chart"
+                                                title="Column Chart">
+                                                <suite:content>
+                                                    <m:VBox>
+                                                        <viz:VizFrame id="vizFrame" height="700px" width="100%"
+                                                            uiConfig="{applicationSet:'fiori'}">
+                                                        </viz:VizFrame>
+                                                    </m:VBox>
+                                                </suite:content>
+                                            </suite:ChartContainerContent>
+                                        </suite:content>
+                                    </suite:ChartContainer>
+                                </layout:contentAreas>
+                            </layout:Splitter>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+        </uxap:sections>
+    </uxap:ObjectPageLayout>
+</mvc:View>
